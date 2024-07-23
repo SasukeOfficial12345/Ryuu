@@ -6,8 +6,8 @@ import os
 import sys
 
 VERSION = "1.0"
-UPDATE_URL = "https://github.com/SasukeOfficial12345/Ryuu/blob/6962292bbe1ed0b713d9a368825e2d1fc2f58923/RyuuFilesMLBB.py"
-VERSION_URL = "https://github.com/SasukeOfficial12345/Ryuu/blob/5579ca22b97c47a15cf08b8d6406d117b1bb6db6/version.txt"
+UPDATE_URL = "https://raw.githubusercontent.com/SasukeOfficial12345/Ryuu/main/RyuuFilesMLBB.py"
+VERSION_URL = "https://raw.githubusercontent.com/SasukeOfficial12345/Ryuu/main/version.txt"
 
 def check_for_update():
     try:
@@ -88,8 +88,6 @@ def perform_action(stdscr, action):
         stdscr.addstr(22, 0, "File downloaded.", curses.color_pair(1))
         stdscr.refresh()
 
-        
-
     elif action == 'MLBBFIXDELAY.zip':
         stdscr.addstr(10, 0, "You selected MLBBFIXDELAY.zip", curses.color_pair(1))
         # Add specific code for MLBBFIXDELAY.zip here
@@ -112,6 +110,22 @@ def perform_action(stdscr, action):
     stdscr.getch()
 
 def main(stdscr):
+    # Check for updates
+    update_available, latest_version = check_for_update()
+    if update_available:
+        stdscr.clear()
+        stdscr.addstr(0, 0, f"Update available: {latest_version}. Updating...", curses.color_pair(1))
+        stdscr.refresh()
+        if update_script():
+            stdscr.addstr(2, 0, "Update successful. Restarting...", curses.color_pair(1))
+            stdscr.refresh()
+            stdscr.getch()
+            os.execv(sys.executable, ['python'] + sys.argv)
+        else:
+            stdscr.addstr(2, 0, "Update failed. Continuing with current version...", curses.color_pair(1))
+            stdscr.refresh()
+            stdscr.getch()
+
     # Turn off cursor blinking
     curses.curs_set(0)
 
