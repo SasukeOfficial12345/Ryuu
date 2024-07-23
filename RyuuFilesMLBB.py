@@ -6,7 +6,7 @@ import os
 import sys
 
 VERSION = "1.0"
-UPDATE_URL = "https://raw.githubusercontent.com/YourUsername/YourRepository/main/RyuuFilesMLBB.py"
+UPDATE_URL = "https://github.com/SasukeOfficial12345/Ryuu/blob/6962292bbe1ed0b713d9a368825e2d1fc2f58923/RyuuFilesMLBB.py"
 VERSION_URL = "https://raw.githubusercontent.com/YourUsername/YourRepository/main/version.txt"
 
 def check_for_update():
