@@ -5,7 +5,7 @@ import requests
 import os
 import sys
 
-VERSION = "1.0"
+VERSION = "1.1"
 UPDATE_URL = "https://raw.githubusercontent.com/SasukeOfficial12345/Ryuu/main/RyuuFilesMLBB.py"
 VERSION_URL = "https://raw.githubusercontent.com/SasukeOfficial12345/Ryuu/main/version.txt"
 
